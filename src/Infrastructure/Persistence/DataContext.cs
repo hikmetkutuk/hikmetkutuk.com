@@ -1,4 +1,5 @@
 ﻿using System;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
@@ -7,7 +8,8 @@ namespace Persistence
     {
         public DataContext(DbContextOptions options) : base(options)
         {
-
         }
+
+        public DbSet<User> Users { get; set; }
     }
 }
