@@ -12,10 +12,28 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
+    <link href="%PUBLIC_URL%/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="%PUBLIC_URL%/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="%PUBLIC_URL%/assets/css/users/user-profile.css" rel="stylesheet" type="text/css" />
+
     <title>hikmetkutuk</title>
   </head>
-  <body>
+  <body class="sidebar-noneoverflow">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <script src="%PUBLIC_URL%/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="%PUBLIC_URL%/bootstrap/js/popper.min.js"></script>
+    <script src="%PUBLIC_URL%/bootstrap/js/bootstrap.min.js"></script>
+    <script src="%PUBLIC_URL%/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/app.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="%PUBLIC_URL%/assets/js/custom.js"></script>
   </body>
 </html>
