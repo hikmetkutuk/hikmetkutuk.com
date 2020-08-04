@@ -8,8 +8,15 @@
 			@Import	Mixins
 	===============================
 */
-.carousel-caption h3, .carousel-caption h5 {
-  color: #fff; }
+.carousel-caption h3 {
+  color: #fff; 
+}
+
+.carousel-caption h5 {
+  color: #fff;
+  margin-top: 50px;
+  font-size: 17px;
+}
 
 /*      style-custom-1       */
 .style-custom-1 .carousel-inner {
@@ -71,7 +78,7 @@
 
 .style-custom-1 .carousel-control-next, .style-custom-1 .carousel-control-prev {
   top: auto;
-  bottom: 32px;
+  bottom: 50px;
   background-color: transparent; }
 
 .style-custom-1 .carousel-indicators li {

@@ -2,11 +2,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="footer-wrapper fixed-bottom">
+    <div className="footer-wrapper">
       <div className="footer-section f-section-1">
         <p>
           Copyright © 2020{" "}
-          <a target="_blank" href="https://designreset.com">
+          <a href="https://designreset.com">
             DesignReset
           </a>
           , All rights reserved.
