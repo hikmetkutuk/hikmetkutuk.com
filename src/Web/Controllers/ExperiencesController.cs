@@ -36,5 +36,11 @@ namespace Web.Controllers
             command.id = id;
             return await _mediator.Send(command);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> Destroy(int id)
+        {
+            return await _mediator.Send(new Destroy.Command { id = id });
+        }
     }
 }
