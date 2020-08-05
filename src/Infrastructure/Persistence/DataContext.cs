@@ -1,5 +1,4 @@
-﻿using System;
-using Domain;
+﻿using Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
@@ -11,5 +10,11 @@ namespace Persistence
         }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Account> Accounts  { get; set; }
+        public DbSet<Education> Educations { get; set; }
+        public DbSet<Experience> Experiences  { get; set; }
+
+        public DbSet<Skill> Skills { get; set; }
     }
 }
