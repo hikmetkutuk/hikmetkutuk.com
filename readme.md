@@ -1,9 +1,9 @@
-<img src="https://i.ibb.co/KVS5Wr3/New-Project.png" alt="core" width=683 height=384 border="0">
+<img src="https://i.ibb.co/KVS5Wr3/New-Project.png" alt="core" width=800 height=300 border="0">
 
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/hikmetkutuk/hikmetkutuk.com?color=red&style=for-the-badge)
 ![npm](https://img.shields.io/npm/v/react?label=react&style=for-the-badge)
-https://img.shields.io/static/v1?label=.net%20core&message=3.1.100&color=purple&style=for-the-badge
+![.net core](https://img.shields.io/static/v1?label=.net%20core&message=3.1.100&color=purple&style=for-the-badge)
 
 # .NET Core
 
