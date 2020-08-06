@@ -7,12 +7,14 @@ import { IUser } from "../../models/user";
 import { IAccount } from "../../models/account";
 import { IEducation } from "../../models/education";
 import { IExperience } from "../../models/experience";
+import { ISkill } from "../../models/skill";
 
 const Index = () => {
   const [users, setUser] = useState<IUser[]>([]);
   const [accounts, setAccount] = useState<IAccount[]>([]);
   const [educations, setEducation] = useState<IEducation[]>([]);
   const [experiences, setExperience] = useState<IExperience[]>([]);
+  const [skills, setSkill] = useState<ISkill[]>([]);
 
   useEffect(() => {
     axios.get<IUser[]>("http://localhost:5000/api/users").then((response) => {
@@ -36,6 +38,10 @@ const Index = () => {
       .then((response) => {
         setExperience(response.data);
       });
+
+    axios.get<ISkill[]>("http://localhost:5000/api/skills").then((response) => {
+      setSkill(response.data);
+    });
   }, []);
 
   return (
@@ -47,8 +53,7 @@ const Index = () => {
               <div className="widget-content widget-content-area">
                 <div className="d-flex justify-content-between">
                   <Link to="/profile-edit" className="edit-profile">
-                  <i className="far fa-edit ml-1" />
-
+                    <i className="far fa-edit ml-1" />
                   </Link>
                 </div>
                 <div className="text-center user-info">
@@ -235,63 +240,24 @@ const Index = () => {
             </div>
             <div className="skills layout-spacing ">
               <div className="widget-content widget-content-area">
-                <h3>Skills</h3>
-                <div className="progress br-30">
-                  <div
-                    className="progress-bar bg-primary"
-                    role="progressbar"
-                    style={{ width: "25%" }}
-                    aria-valuenow={25}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  >
-                    <div className="progress-title">
-                      <span>PHP</span> <span>25%</span>{" "}
+                <h3>Yetenekler</h3>
+                {skills.map((skill) => (
+                  <div className="progress br-30">
+                    <div
+                      className="progress-bar bg-primary"
+                      role="progressbar"
+                      style={{ width: skill.percentage + "%" }}
+                      aria-valuenow={25}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                    >
+                      <div className="progress-title">
+                        <span>{skill.name}</span>{" "}
+                        <span>{skill.percentage}%</span>{" "}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="progress br-30">
-                  <div
-                    className="progress-bar bg-primary"
-                    role="progressbar"
-                    style={{ width: "50%" }}
-                    aria-valuenow={25}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  >
-                    <div className="progress-title">
-                      <span>Wordpress</span> <span>50%</span>{" "}
-                    </div>
-                  </div>
-                </div>
-                <div className="progress br-30">
-                  <div
-                    className="progress-bar bg-primary"
-                    role="progressbar"
-                    style={{ width: "70%" }}
-                    aria-valuenow={25}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  >
-                    <div className="progress-title">
-                      <span>Javascript</span> <span>70%</span>{" "}
-                    </div>
-                  </div>
-                </div>
-                <div className="progress br-30">
-                  <div
-                    className="progress-bar bg-primary"
-                    role="progressbar"
-                    style={{ width: "60%" }}
-                    aria-valuenow={25}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  >
-                    <div className="progress-title">
-                      <span>jQuery</span> <span>60%</span>{" "}
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
