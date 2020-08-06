@@ -22,5 +22,11 @@ namespace Web.Controllers
         {
             return await _mediator.Send(new List.Query());
         }
+
+        [HttpPost]
+        public async Task<ActionResult<Unit>> Store(Store.Command command)
+        {
+            return await _mediator.Send(command);
+        }
     }
 }
