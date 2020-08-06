@@ -2,18 +2,19 @@
 
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/hikmetkutuk/hikmetkutuk.com?color=red&style=for-the-badge)
-![npm](https://img.shields.io/npm/v/react?label=react&style=for-the-badge)
+![.postgreSQL](https://img.shields.io/static/v1?label=postgresql&message=12.1&color=blue&style=for-the-badge)
 ![.net core](https://img.shields.io/static/v1?label=.net%20core&message=3.1.100&color=purple&style=for-the-badge)
+![npm](https://img.shields.io/npm/v/react?label=react&style=for-the-badge)
 
 # .NET Core
 
 The dotnet/core repository is a good starting point for .NET Core.
 
-The latest major release is [.NET Core 3.1](release-notes/3.1). The latest patch updates are listed in [.NET Core release notes](release-notes/README.md).
+The latest major release is .NET Core 3.1
 
 ## Download the latest .NET Core SDK
 
-* [.NET Core 3.1 SDK](release-notes/3.1/README.md)
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 
 # React
 
