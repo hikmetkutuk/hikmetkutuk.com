@@ -2,8 +2,31 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { IAccount } from "../../models/account";
+import { IUser } from "../../models/user";
 
-const Edit = () => {
+interface IProps {
+  account: IAccount;
+  user: IUser;
+}
+
+const Edit: React.FC<IProps> = ({ user: initUserState }) => {
+  const initUserForm = () => {
+    if (initUserState) {
+      return initUserState;
+    } else {
+      return {
+        id: "",
+        name: "",
+        job: "",
+        birthdate: "",
+        location: "",
+        email: "",
+        bio: "",
+      };
+    }
+  };
+
+  const [user, setUser] = useState<IUser>(initUserForm);
   const [accounts, setAccount] = useState<IAccount[]>([]);
 
   useEffect(() => {
@@ -34,7 +57,7 @@ const Edit = () => {
                     aria-controls="justify-home"
                     aria-selected="true"
                   >
-                    Profile
+                    Profil
                   </a>
                 </li>
                 <li className="nav-item">
@@ -47,7 +70,7 @@ const Edit = () => {
                     aria-controls="justify-account"
                     aria-selected="false"
                   >
-                    Accounts
+                    Hesaplar
                   </a>
                 </li>
                 <li className="nav-item">
@@ -60,7 +83,7 @@ const Edit = () => {
                     aria-controls="justify-skill"
                     aria-selected="false"
                   >
-                    Skills
+                    Yetenekler
                   </a>
                 </li>
               </ul>
@@ -86,8 +109,7 @@ const Edit = () => {
                                   data-max-file-size="2M"
                                 />
                                 <p className="mt-2">
-                                  <i className="flaticon-cloud-upload mr-1" />{" "}
-                                  Upload Picture
+                                  <i className="flaticon-cloud-upload mr-1" />
                                 </p>
                               </div>
                             </div>
@@ -96,148 +118,47 @@ const Edit = () => {
                                 <div className="row">
                                   <div className="col-sm-6">
                                     <div className="form-group">
-                                      <label htmlFor="fullName">
-                                        Full Name
-                                      </label>
+                                      <label htmlFor="fullName">İsim</label>
                                       <input
                                         type="text"
                                         className="form-control mb-4"
                                         id="fullName"
-                                        placeholder="Full Name"
-                                        defaultValue="Jimmy Turner"
+                                        value={user.name}
                                       />
                                     </div>
                                   </div>
                                   <div className="col-sm-6">
                                     <label className="dob-input">
-                                      Date of Birth
+                                      Doğum Tarihi
                                     </label>
-                                    <div className="d-sm-flex d-block">
-                                      <div className="form-group mr-1">
-                                        <select
-                                          className="form-control"
-                                          id="exampleFormControlSelect1"
-                                        >
-                                          <option>Day</option>
-                                          <option>1</option>
-                                          <option>2</option>
-                                          <option>3</option>
-                                          <option>4</option>
-                                          <option>5</option>
-                                          <option>6</option>
-                                          <option>7</option>
-                                          <option>8</option>
-                                          <option>9</option>
-                                          <option>10</option>
-                                          <option>11</option>
-                                          <option>12</option>
-                                          <option>13</option>
-                                          <option>14</option>
-                                          <option>15</option>
-                                          <option>16</option>
-                                          <option>17</option>
-                                          <option>18</option>
-                                          <option>19</option>
-                                          <option selected>20</option>
-                                          <option>21</option>
-                                          <option>22</option>
-                                          <option>23</option>
-                                          <option>24</option>
-                                          <option>25</option>
-                                          <option>26</option>
-                                          <option>27</option>
-                                          <option>28</option>
-                                          <option>29</option>
-                                          <option>30</option>
-                                        </select>
-                                      </div>
-                                      <div className="form-group mr-1">
-                                        <select
-                                          className="form-control"
-                                          id="month"
-                                        >
-                                          <option>Month</option>
-                                          <option selected>Jan</option>
-                                          <option>Feb</option>
-                                          <option>Mar</option>
-                                          <option>Apr</option>
-                                          <option>May</option>
-                                          <option>Jun</option>
-                                          <option>Jul</option>
-                                          <option>Aug</option>
-                                          <option>Sep</option>
-                                          <option>Oct</option>
-                                          <option>Nov</option>
-                                          <option>Dec</option>
-                                        </select>
-                                      </div>
-                                      <div className="form-group mr-1">
-                                        <select
-                                          className="form-control"
-                                          id="year"
-                                        >
-                                          <option>Year</option>
-                                          <option>2018</option>
-                                          <option>2017</option>
-                                          <option>2016</option>
-                                          <option>2015</option>
-                                          <option>2014</option>
-                                          <option>2013</option>
-                                          <option>2012</option>
-                                          <option>2011</option>
-                                          <option>2010</option>
-                                          <option>2009</option>
-                                          <option>2008</option>
-                                          <option>2007</option>
-                                          <option>2006</option>
-                                          <option>2005</option>
-                                          <option>2004</option>
-                                          <option>2003</option>
-                                          <option>2002</option>
-                                          <option>2001</option>
-                                          <option>2000</option>
-                                          <option>1999</option>
-                                          <option>1998</option>
-                                          <option>1997</option>
-                                          <option>1996</option>
-                                          <option>1995</option>
-                                          <option>1994</option>
-                                          <option>1993</option>
-                                          <option>1992</option>
-                                          <option>1991</option>
-                                          <option>1990</option>
-                                          <option selected>1989</option>
-                                          <option>1988</option>
-                                          <option>1987</option>
-                                          <option>1986</option>
-                                          <option>1985</option>
-                                          <option>1984</option>
-                                          <option>1983</option>
-                                          <option>1982</option>
-                                          <option>1981</option>
-                                          <option>1980</option>
-                                        </select>
-                                      </div>
+
+                                    <div className="form-group mb-0">
+                                      <input
+                                        id="basicFlatpickr"
+                                        value={user.birthdate}
+                                        className="form-control"
+                                        type="text"
+                                        placeholder="2019-09-04"
+                                      />
                                     </div>
                                   </div>
                                 </div>
                                 <div className="form-group">
-                                  <label htmlFor="profession">Profession</label>
+                                  <label htmlFor="profession">Meslek</label>
                                   <input
                                     type="text"
                                     className="form-control mb-4"
                                     id="profession"
-                                    placeholder="Designer"
-                                    defaultValue="Web Developer"
+                                    value={user.job}
                                   />
                                 </div>
                                 <div className="form-group">
-                                  <label htmlFor="location">Location</label>
+                                  <label htmlFor="location">Adres</label>
                                   <input
                                     type="text"
                                     className="form-control mb-4"
                                     id="location"
-                                    placeholder="Location"
+                                    value={user.location}
                                   />
                                 </div>
                                 <div className="form-group">
@@ -246,8 +167,7 @@ const Edit = () => {
                                     type="text"
                                     className="form-control mb-4"
                                     id="email"
-                                    placeholder="Write your email here"
-                                    defaultValue="Jimmy@gmail.com"
+                                    value={user.email}
                                   />
                                 </div>
 
@@ -256,11 +176,8 @@ const Edit = () => {
                                   <textarea
                                     className="form-control"
                                     id="aboutBio"
-                                    placeholder="Tell something interesting about yourself"
                                     rows={10}
-                                    defaultValue={
-                                      "I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.\n\nMy job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies."
-                                    }
+                                    value={user.bio}
                                   />
                                 </div>
                                 <div className="text-right">
@@ -268,7 +185,7 @@ const Edit = () => {
                                     id=""
                                     className="btn btn-success btn-sm"
                                   >
-                                    Save
+                                    Kaydet
                                   </button>
                                 </div>
                               </div>
@@ -287,24 +204,20 @@ const Edit = () => {
                   aria-labelledby="justify-account-tab"
                 >
                   <div className="info">
-                    <h5>
-                      Accounts
-                      
-                    </h5>
+                    <h5>Accounts</h5>
 
                     <form id="social" className="social">
                       <div className="row">
                         <div className="col-md-11 mx-auto">
-                        <div className="text-right mb-3">
-                        <button
-                          className="btn btn-info btn-sm"
-                          data-toggle="modal"
-                          data-target="#accountsModal"
-                        >
-                         
-                          Add
-                        </button>
-                      </div>
+                          <div className="text-right mb-3">
+                            <button
+                              className="btn btn-info btn-sm"
+                              data-toggle="modal"
+                              data-target="#accountsModal"
+                            >
+                              Add
+                            </button>
+                          </div>
                           <div className="row">
                             {accounts.map((account) => (
                               <div className="col-md-6">

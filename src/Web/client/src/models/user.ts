@@ -2,7 +2,7 @@ export interface IUser {
   id: string;
   name: string;
   job: string;
-  birthdate: Date;
+  birthdate: string;
   location: string;
   email: string;
   bio: string;

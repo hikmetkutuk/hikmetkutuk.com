@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Router from '../router/router';
+import Router from '../routes/router';
 
 import Navbar from "../components/layouts/Navbar";
 import Header from "../components/layouts/Header";

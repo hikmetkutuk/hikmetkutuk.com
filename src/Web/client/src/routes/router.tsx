@@ -5,7 +5,7 @@ import Profile from "../components/profile/Index";
 import PostList from "../components/posts/List";
 import ProfileEdit from "../components/profile/Edit";
 
-const Router = () => {
+const Router: React.FC = () => {
   return (
     <Switch>
       <Route path="/profile" component={Profile} />
